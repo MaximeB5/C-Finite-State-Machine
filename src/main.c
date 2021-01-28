@@ -26,9 +26,9 @@ int main()
 	eSystemState next_state = Idle_State;
 
 	while(1)
-    {
-        // Get event
-        eSystemEvent eNewEvent = read_event();
+	{
+		// Get event
+		eSystemEvent eNewEvent = read_event();
 		printf("State is %d\n", eNewEvent);
 
         if(		(next_state < last_State)
@@ -36,15 +36,15 @@ int main()
 			&&	(fsm[next_state].event == eNewEvent)
 			&&	(fsm[next_state].event_handler != NULL)
 		)
-        {
+		{
             // Function call as per the state and event and return the next state of the finite state machine
             next_state = (*fsm[next_state].event_handler)();
-        }
+		}
         else
-        {
+		{
 			printf("--- invalid input ---\n\n");
-        }
-    }
+		}
+	}
 
 	return(0);
 }
