@@ -16,10 +16,10 @@ int main()
 	// Initialize array of structure with states and event with proper handler
 	s_FSM fsm [] =
 	{
-		{Idle_State,			Card_Insert_Event,		insert_card_handler},
-		{Card_Inserted_State,	Pin_Enter_Event,		enter_pin_handler},
+		{Idle_State,		Card_Insert_Event,	insert_card_handler},
+		{Card_Inserted_State,	Pin_Enter_Event,	enter_pin_handler},
 		{Pin_Eentered_State,	Option_Selection_Event,	option_selection_handler},
-		{Option_Selected_State,	Amount_Enter_Event,		enter_amount_handler},
+		{Option_Selected_State,	Amount_Enter_Event,	enter_amount_handler},
 		{Amount_Entered_State,	Amount_Dispatch_Event,	amount_dispatch_handler}
 	};
 
