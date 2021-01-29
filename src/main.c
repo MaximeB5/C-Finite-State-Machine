@@ -13,7 +13,7 @@ int main()
 	printf("Hello from C-Finite State Machine.\n");
 	printf("This FSM follows a sequence of 5 states, from 0 to 4.\n\n");
 
-	// Initialize array of structure with states and event with proper handler
+	// Initialize array of structure with states, events, and the proper handler
 	s_FSM fsm [] =
 	{
 		{Idle_State,			Card_Insert_Event,		insert_card_handler},
@@ -25,6 +25,7 @@ int main()
 
 	eSystemState next_state = Idle_State;
 
+	// Working loop
 	while(1)
 	{
 		// Get event
@@ -47,4 +48,14 @@ int main()
 	}
 
 	return(0);
+
+	/*
+		Après, tu vois en fonction de ce que tu veux faire, mais soit:
+		
+		- Tu mets le "menu" dans le programme principal, et tu transmets un eSystemState à la FSM au travers d'un handler,
+			et c'est l'état qui est derrière qui va choisir si la valeur entrée est valide ou pas et quel est l'état suivant;
+
+		- Ou bien tu mets la lecture dans une fonction que tu appelle dans chaque état, ce qui a pour conséquence que ta FSM a un
+			périmètre plus important dans ton programme et prend en charge plus de fonctionnalités que la simple gestion d'une logique.
+	*/
 }
